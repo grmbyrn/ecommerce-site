@@ -8,6 +8,7 @@ on:
 
 jobs:
   deploy:
+    if: ${{ (github.event_name == 'push' && github.ref == 'refs/heads/main') || (github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name == github.repository) }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -27,7 +28,7 @@ jobs:
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
         run: |
           if [ "${{ github.event_name }}" = "pull_request" ]; then
-            npx vercel --token $VERCEL_TOKEN --confirm --prebuilt
+            npx vercel --token $VERCEL_TOKEN --yes
           else
-            npx vercel --prod --token $VERCEL_TOKEN --confirm --prebuilt
+            npx vercel --prod --token $VERCEL_TOKEN --yes
           fi
