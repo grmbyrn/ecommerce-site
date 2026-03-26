@@ -2,7 +2,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import ModeToggle from "@/components/shared/header/mode-toggle";
 import {EllipsisVertical, ShoppingCart, User} from "lucide-react";
-import { Sheet, SheetContent, SheetDescription, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
+import { Sheet, SheetClose, SheetContent, SheetDescription, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 
 const Menu = () => {
     return (
@@ -22,22 +22,29 @@ const Menu = () => {
             </nav>
             <nav className='md:hidden'>
                 <Sheet>
-                    <SheetTrigger>
-                        <EllipsisVertical />
+                    <SheetTrigger asChild>
+                       <Button type="button" variant="ghost" size="icon" aria-label="Open menu">
+                            <EllipsisVertical />
+                            <span className="sr-only">Open menu</span>
+                        </Button>
                     </SheetTrigger>
                     <SheetContent className='flex flex-col items-start'>
                         <SheetTitle>Menu</SheetTitle>
                         <ModeToggle />
-                        <Button asChild variant='ghost'>
-                            <Link href='/cart'>
-                                <ShoppingCart /> Cart
-                            </Link>
-                        </Button>
-                        <Button asChild>
-                            <Link href='/sign-in'>
-                                <User /> Sign In
-                            </Link>
-                        </Button>
+                        <SheetClose asChild>
+                            <Button asChild variant='ghost'>
+                                <Link href='/cart'>
+                                    <ShoppingCart /> Cart
+                                </Link>
+                            </Button>
+                        </SheetClose>
+                        <SheetClose>
+                            <Button asChild>
+                                <Link href='/sign-in'>
+                                    <User /> Sign In
+                                </Link>
+                            </Button>
+                        </SheetClose>
                         <SheetDescription></SheetDescription>
                     </SheetContent>
                 </Sheet>
