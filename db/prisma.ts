@@ -7,6 +7,9 @@ import ws from 'ws';
 // Sets up WebSocket connections, which enables Neon to use WebSocket communication.
 neonConfig.webSocketConstructor = ws;
 const connectionString = `${process.env.DATABASE_URL}`;
+if (!connectionString) {
+  throw new Error('DATABASE_URL is not set');
+}
 
 // Creates a new connection pool using the provided connection string, allowing multiple concurrent connections.
 // const pool = new Pool({ connectionString });
