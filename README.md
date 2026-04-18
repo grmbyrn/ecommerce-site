@@ -1,5 +1,28 @@
 # Ecommerce Site
 
+This repository contains a full-stack ecommerce website built with Next.js and TypeScript. It uses Prisma with PostgreSQL for the database and NextAuth for authentication. The project includes testing utilities, developer DX conveniences, and is ready to deploy to Vercel.
+
+## Live Demo
+
+- https://ecommerce-site-five-swart.vercel.app/
+
+## Tech Stack
+
+- Next.js (App Router)
+- TypeScript
+- React
+- Prisma
+- PostgreSQL
+- NextAuth (authentication)
+- Jest + React Testing Library (tests)
+- Vercel (deployment)
+
+## Screenshots
+
+Drop screenshots into the `public/images` folder and update these links. Example screenshot:
+
+![Ecommerce screenshot](public/images/ecommerce.png)
+
 Quick start, developer DX, and TDD guidance for this Next.js + TypeScript project.
 
 **Quick Setup**
@@ -58,7 +81,7 @@ npx husky add .husky/pre-commit "npx lint-staged"
 - `components/ui/button.tsx` — assert `data-slot`, `data-variant`, `data-size`, and `asChild` behavior.
 - `components/shared/header/mode-toggle.tsx` — mock `next-themes` and assert icon + `setTheme` calls.
 
-If you want, I can scaffold any of the above test skeletons, add Husky + lint-staged, or convert the Jest config to a JS file to avoid `ts-node`. Tell me which item to do next.
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
